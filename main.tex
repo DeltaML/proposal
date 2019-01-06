@@ -1,0 +1,331 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+spanish, % ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+
+\selectlanguage{spanish}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{mathpazo} % Use the Palatino font by default
+
+\usepackage[backend=biber,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\addbibresource{references.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+\usepackage{tabularx}
+
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{DeltaML \\
+Machine Learning descentralizado utilizando Blockchain para fomentar participaci\'on en la red} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Dr. Mariano \textsc{Beiró}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Ingeniería en Informática} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{
+Fabrizio \textsc{Graffe} 93158\\
+Agustín \textsc{Rojas}  91462
+} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{Inform'\atica} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{http://www.uba.ar}{Universidad de Buenos Aires}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{\href{http://www.fi.uba.ar}{Facultad de Ingenier\'ia}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{\href{http://researchgroup.university.com}{Research Group Name}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{\href{http://www.fi.uba.ar}{Facultad de Ingenier\'ia}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}
+\vspace{0.7cm} % University name
+
+\includegraphics[scale=0.3]{Logo} % University/department logo - uncomment to place it
+
+\vspace{0.7cm} % University name
+
+
+\textsc{\Large Propuesta de Trabajo Profesional}\\[0.5cm] % Thesis type
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+\href{http://www.johnsmith.com}{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+\href{http://www.jamessmith.com}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\end{flushright}
+\end{minipage}\\[3cm]
+
+ 
+\vfill
+
+{\large \today}\\[4cm] % Date
+
+ 
+\vfill
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+\chapter{Introducci\'on}
+
+\chapter{Descripci\'on del problema}
+
+\chapter{Estado del arte}
+
+\chapter{Objetivos}
+
+\chapter{Car\'acteristicas del trabajo}
+
+
+\section{Modulo de Machine Learning descentralizado}
+
+
+\section{Modulo de encriptac\'ion}
+
+\section{}
+
+
+\chapter{Tecnolog\'ias}
+
+\section{Blockchain}
+
+\subsection{Ethereum network}
+\parencite{Ethereum}
+
+
+\subsection{Solidity}
+
+\subsection{Zeppelin OS}
+
+\subsection{Open Zeppelin}
+
+\subsection{Truffle}
+
+\subsection{Ganache}
+
+\subsection{Metamask}
+
+
+\section{Machine Learning}
+
+
+\section{Frontend}
+
+\subsection{React}
+
+\section{Storage}
+
+\subsection{IPFS}
+
+\chapter{Alcance}
+
+\chapter{Plan de Trabajo}
+
+\section{Equipo de trabajo}
+
+\begin{center}
+	\begin{tabularx}{\textwidth}{|X|X|}
+    \hline
+	\multicolumn{2}{ |c| }{\textbf{Equipo}} \\    
+    \hline
+    \textbf{Integrante} & \textbf{Rol}  \\ \hline
+    Mariano Beiró & Tutor \\ \hline
+    Fabrizio Graffe & Desarrollador \\ \hline
+    Agustín Rojas & Desarrollador \\ \hline
+    \end{tabularx}
+\end{center}
+
+
+\section{Metodolog\'ia}
+
+Para la ejecución del proyecto se usará una metodología ágil basada en SCRUM. La misma consistirá en definir una serie de iteraciones con fechas pautadas de reuniones de avance y entregas.
+
+Al inicio de cada iteración se conformará una priorización de los requerimientos pendientes de desarrollo. Posteriormente, se procederá a su implementación y, para finalizar cada iteración, se hará una presentación de los entregables pautados. Las reuniones, entregas, presentaciones y la priorización de los requerimientos para cada iteración se realizará en con el tutor del trabajo.
+
+
+
+\section{Estimaci\'on}
+
+Se muestra a continuación el listado de tareas necesarias para alcanzar los objetivos descritos anteriormente. Todos los esfuerzos se encuentran expresados en horas.
+
+{
+\setlength{\extrarowheight}{.2em}
+\begin{center}
+	\begin{tabularx}{\textwidth}{|l|X|l|}
+    \hline
+    \textbf{It.} & \textbf{Descripción} & \textbf{Esf.}  \\ \hline
+    1 & Aprendizaje desarrollo de aplicaciones descentralizadas & 40 \\ 
+      & Aprendizaje de uso de IPFS como storage descentralizado & 10 \\
+      & Desarrollo de prueba de concepto (IPFS + Ethereum) & 20 \\ \hline
+    2 & Investigación sobre métodos de encripción & 40 \\
+      & Desarrollo de modulo de encriptación de modelos de ML & 20 \\ \hline
+    3 & Investigación sobre Federated Learning y alternativas & 40 \\ 
+      & Desarrollo de modulo de Federated Learning & 20 \\ 
+      & Desarrollo de caso de uso para modulo de Federated Learning & 20 \\ \hline
+    4 & Desarrollo de aplicación web para marketplace descentralizado & 20 \\ 
+      & Desarrollo de smart contracts para marketlace descentralizado & 20 \\ 
+      & Integración de los modulos desarrollados con el marketplace descentralizado & 60 \\ \hline     
+    5  & Pruebas del sistema en funcionamiento & 20 \\ \hline
+      & Reuniones & 15 \\ \hline
+      & Presentación & 15 \\ \hline
+      & Reuniones & 15 \\ \hline
+    \end{tabularx}
+\end{center}
+}
+
+Además se debe tener en cuenta el tiempo dedicado a la administración del proyecto, estimando un 15\% del tiempo de desarrollo, lo cual resulta en:
+
+{
+\setlength{\extrarowheight}{.2em}
+\begin{center}
+	\begin{tabular}{|l|l|}
+    \hline
+    \textbf{Descripción} & \textbf{Esf.}  \\ \hline
+    Iteración 1 & 70 \\ \hline
+    Iteración 2 & 60 \\ \hline
+    Iteración 3 & 80 \\ \hline
+    Iteración 4 & 100 \\ \hline
+    Iteración 5 & 20 \\ \hline
+    Otros & 45 \\ \hline     
+    Administración & 105 \\ \hline
+    \textbf{Esfuerzo total} & 805 \\ \hline
+    \end{tabular}
+\end{center}
+}
+
+\section{Cronograma de entregables}
+A continuación se hace un cronograma tentativo de entregables al finalizar cada una de las iteraciones. Las mismas pueden ser modificadas en caso de verse necesario, por el tutor o por los desarrolladores del proyecto. La fecha de cada una de las entregas serán determinadas en conjunto con el tutor.
+
+{
+\setlength{\extrarowheight}{.2em}
+\begin{center}
+	\begin{tabularx}{\textwidth}{|l|X|X|}
+    \hline
+    \textbf{It.} & \textbf{Entregables} & \textbf{Hitos}  \\ \hline
+    1 & Prueba de concepto (IPFS + Ethereum) & Curso de aplicaciones descentralizadas terminado  \\ 
+      & & Videos y lecturas sobre IPFS terminadas \\
+      & & Prueba de concepto desarrollada  \\ \hline
+    2 & Modulo de encriptación de modelos & Investigación sobre hommomorphic encryption, multy-party encryption y alternativas terminada. \\ 
+      & & Método de encriptación seleccionado \\
+      & & Modulo de encriptación terminado \\ \hline
+    3 & Modulo de Federated Learning & Investigación sobre Federated Learning y alternativas terminado. \\ 
+      & & Pruebas de conepto usando Federated Learning terminadas. \\
+      & & Desarrollo de framework de ML usando Federated Learning terminado. \\ \hline
+    4 & Marketplace descentralizado usando smart contracts sobre Ethereum & Desarrollo de smart contracts terminado. \\
+      & & Desarrollo de frontend terminado. \\
+      & & Integración de frontend con smart contracts e IPFS terminado. \\
+      & & Desarrollo de caso de prueba terminado \\ \hline 
+    5 & Casos de uso probados & Prueba exhaustiva de uno o dos casos de uso terminada \\ \hline
+    \end{tabularx}
+\end{center}
+}
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc]
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}  
