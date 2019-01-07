@@ -165,10 +165,48 @@ Agustín \textsc{Rojas}  91462
 \pagestyle{thesis} % Return the page headers back to the "thesis" style
 
 \chapter{Introducci\'on}
+El siguiente documento presenta la propuesta de Trabajo Profesional de Ingenierı́a en Informática de los estudiantes Fabrizio Sebastian Graffe (padrón 93158) y Agutín Rojas (padrón 91462).
+
+El objetivo es aplicar los conocimientos adquiridos durante la carrera, para lo cual el tema elegido es \textbf{"Machine Learning descentralizado utilizando Blockchain para fomentar participaci\'on en la red"}.
+
+Machine learning (o "aprendizaje automatico") la rama del area de la inteligencia artificial abocada al estudio y construcción de sistemas capaces de aprender de los datos, identificar patrones y realizar decisiones con mínima intervención humana.
+Blockain
+
 
 \chapter{Descripci\'on del problema}
 
 \chapter{Estado del arte}
+
+Actualmente existen varios proyectos en desarrollo y técnicas en investigación que intentan atacar la misma problematica de diferentes maneras.
+
+\begin{itemize}
+\item \textbf{Federated Learning:} El aprendizaje federado es un método de aprendizaje automático en el que el objetivo es entrenar a un modelo centralizado de alta calidad con datos de entrenamiento distribuidos entre un gran número de clientes, cada uno con conexiones de red poco confiables y relativamente lentas. Los algoritmos de aprendizaje para esta configuración funcionan de la siguiente manera: en cada iteración, cada cliente calcula de forma independiente una actualización del modelo actual en función de sus datos locales y comunica esta actualización a un servidor central, donde las actualizaciones del lado del cliente se agregan para calcular una nueva versión global del modelo. Los clientes típicos en este entorno son los teléfonos móviles, y la eficiencia de la comunicación es de suma importancia. Actualmente, Google está investigando esté método de aprendizaje automático y publicó varios papers al respecto, analizando mejoras y aplicaciones para dispositivos móbiles (tales como predicción de palabras para GBoard).
+
+\item \textbf{OpenMined:} Marketplace descentralizado de modelos de machine learning. Opera sobre la red de Ethereum. Utiliza Federated Learning para el entrenamiento de los modelos predictivos sobre Tensorflow y Pytorch ya que permiten entrenamiento desde clientes web. Modelos encriptados con homomorphic encryption para una transmición de datos segura. 
+Smart contracts regulan el marketplace y pagan a quienes gastaron poder de computo entrenando un proporcional de acuerdo a cuanto aportaron a la mejora del modelo global.
+Actualmente en desarrollo.
+
+\item \textbf{DML:} Muy similar a OpenMined.
+
+\item \textbf{NumerAI:} Fondo de inversion que genera predicciones utilizando modelos predictivos crowd-sourced. Transforma y regulariza datos financieros a  Transforms and regularizes financial data into machine learning problems for global network of data scientists
+
+
+
+Los intercambios de Numerai están determinados por una IA, que es alimentada por una red de miles de científicos de datos anónimos. La innovación tecnológica que Numerai proporciona está en su uso del cifrado de preservación de la estructura que aplican en sus fuentes de datos. Su objetivo es evitar sesgos y sobreajuste, también hace posible que Numerai comparta sus fuentes de datos de forma gratuita con sus usuarios.
+
+\item \textbf{Augur:} Es un protocolo de predicción de mercados destinado a ser propiedad de las personas que lo usan.
+Augur es un oraculo descentralizado y un protocolo peer to peer para la predicción de mercados. Augur es proyecto open-source. Es un conjunto de smart contracts escritos en Solidity que operan sobre Ethereum.
+
+
+
+\item \textbf{Golem Network:}
+
+\item \textbf{OceanProtocol:} Ecosistema destinado a comprartir activos y servicios. 
+Los activos son datos y algoritmos. Los servicios son la integración, procesamiento, computación y almacenamiento. 
+Ocean Protocol es un protocolo de intercambio de datos descentralizado, que permite que personas compartan y monetizen sus datos a la vez que garantiza control, auditabilidad, transparencia y is a decentralized data exchange protocol that lets people share and monetize data while guaranteeing control, auditability, transparency y conformidad a todos los actores involucrados to all actors involved.
+
+\item \textbf{Wibson:} Mercado de datos descentralizado, basado en blockchain, que proporciona a las personas una forma segura y anónima de vender información privada validada en un entorno confiable. Opera sobre la red de Ethereum. Las personas pueden vender sus datos por medio de la aplicacion movil de Wibson.
+\end{itemize}
 
 \chapter{Objetivos}
 
@@ -189,20 +227,26 @@ Agustín \textsc{Rojas}  91462
 
 \subsection{Ethereum network}
 \parencite{Ethereum}
-
+Ethereum es una plataforma descentralizada que ejecuta contratos inteligentes (smart contracts): aplicaciones que se ejecutan exactamente como fueron programadas sin ninguna posibilidad de downtime, censura, fraude o interferencia de una tercera parte.
 
 \subsection{Solidity}
+Solidity es un lenguaje de alto nivel, orientado a objetos para implementar smart contracts. Los smart contracts son programas que gobiernan el comportamiento de cuentas dentro del ecosistema Ethereum.
+
 
 \subsection{Zeppelin OS}
+ZeppelinOS es una plataforma de desarrollo diseñada para proyectos que involucren smart contracts. Permite realizar actualizaciones de los mismos de manera sencilla y provee incentivos económicos para crear un ecosistema saludable de aplicaciones seguras.
 
 \subsection{Open Zeppelin}
+OpenZeppelin es un framework de smart contracts reutilizables para Ethereum y otras blockchains de EVM y eWASM. Reduce el riesgo de vulnerabilidades mediante el uso de un estándar probado y revisado por la comunidad.
 
 \subsection{Truffle}
+Framework de desarrollo de smart contracts para blockchains que utilizan la Máquina Virtual Ethereum (EVM).
 
 \subsection{Ganache}
+Ganache es una blockchain personal para el desarrollo en Ethereum (testnet local) que se puede utilizar para implementar contratos, desarrollar sus aplicaciones y ejecutar pruebas.
 
 \subsection{Metamask}
-
+MetaMask es una extensión que permite ejecutar aplicaciones descentralizadas (dApps) de Ethereum en web browsers sin la necesidad de tener un full node de Ethereum.
 
 \section{Machine Learning}
 
@@ -214,8 +258,20 @@ Agustín \textsc{Rojas}  91462
 \section{Storage}
 
 \subsection{IPFS}
+IPFS (InterPlanetary File System) es un sistema distribuido para almacenar y acceder a archivos, sitios web, aplicaciones y datos.
 
 \chapter{Alcance}
+El alcance del presente Trabajo Profesional comprende:
+
+\begin{itemize}
+\item Desarrollo de un framework de machine learning descentralizado.
+\item Desarrollo de un modulo de encriptación.
+\item Desarrollo de marketplace de modelos de ML por medio de smart contracts con las reglas de negocio para monetizar la contribución de los diferentes participantes.
+\item Desarrollo de integración entre smart contracts e IPFS para almacenar datos de manera descentralizada.
+\item Desarrollo de interfaz web para el marketplace.
+\item Pruebas del sistema en testnet de ethereum local y posibles pruebas en testnets globales (Kovan, Rinkeby, Ropsten).
+\end{itemize}
+
 
 \chapter{Plan de Trabajo}
 
