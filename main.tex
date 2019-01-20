@@ -24,7 +24,7 @@
 
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
-%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
 spanish, % ngerman for German
 singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
 %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
@@ -180,24 +180,18 @@ Las ventajas de la tecnología Blockchain por sobre bases de datos tradicionales
 \item \textbf{Irreversibilidad:} Una transacción registrada en la blockchain no puede ser alterada por ninguno de los participantes de la red (otra vez, se necesitaria un poder de computo mayor al 51\% de la red).
 \end{itemize}
 
-Tanto el area de Machine Learning como la tecnología Blockchain son elementos que estan disrumpiendo la industria del software en la actualidad y cada vez tienen mas importancia en la vida diaria de las personas. En algunos casos es para bien, pero tambien existen casos en los que se han usado para el mal. \\
+\chapter{Descripci\'on del problema}
 
-Un ejemplo muy importante de mal uso de la tecnologia es facebook, que ha tenido varios casos de violación de la privacidad de los datos de sus usuarios, venta e intercambio de estos datos con otras companias, uso de técnicas de aprendizaje automatico para generar adicción a las novedades en su plataforma y generación de cámaras de eco o echo chambers por medio de filtrado de contenido (para mostrar a los usuarios solo opiniones similares a la suya, provocando así un refuerzo de su propia visión aprovechandose de sesgos propios de los humanos como el Sesgo de Confirmación o Confirmation Bias), por nombrar algunos. \\
+Tanto el area de Machine Learning como la tecnología Blockchain son elementos que estan disrumpiendo la industria del software en la actualidad y cada vez tienen mas importancia en la vida diaria de las personas. En algunos casos su aplicación ha resultado en avances con un impacto positivo en la humanidad, pero tambien existen casos en los que se su impacto ha sido negativo. \\
 
-Así como facebook incurrió en estas malas prácticas que debilitan y manipulan a los usuarios de su plataforma, muchas otras empresas también lo hacen día a día. \\
+Un ejemplo muy importante de mal uso de la tecnologia es facebook, que ha tenido varios casos de violación de la privacidad de los datos de sus usuarios, venta e intercambio de éstos con otras companias, uso de técnicas de aprendizaje automatico para generar adicción a las novedades en su plataforma y generación de cámaras de eco (echo chambers) por medio de filtrado de contenido (para mostrar a los usuarios solo opiniones similares a la suya, provocando así un refuerzo de su propia visión aprovechandose de sesgos propios de los humanos como el Sesgo de Confirmación o Confirmation Bias), por nombrar algunos. \\
+
+Así como facebook incurrió en estas malas prácticas que debilitan y manipulan a los usuarios de su plataforma, muchas otras empresas e incluso estados también lo hacen día a día. \\
 
 La creciente necesidad de mantener la privacidad de nuestros datos, que dia a dia son mas valiosos, está llevando a diferentes gobiernos a plantear regulaciones mas estrictas en lo relativo al uso de los mismos.
 Esto a su vez está impulsando una gran cantidad de iniciativas en el mundo para cambiar el paradigma actual donde las empresas son dueñas de los datos de las personas, a uno donde las personas sean dueñas de sus propios datos y puedan venderlos para un uso determinado y ningun otro. En el ámbito local se tiene el ejemplo de Wibson como una empresa que va en ese camino. \\
 
 Debido a todo lo anterior mencionado, se eligió la temática de este trabajo teniendo en mente que en los años por venir se necesitarán maneras de entrenar modelos de Machine Learning sin violar la privacidad de las personas, es decir, sin tener una copia de sus datos en bases de datos de las companias. Por lo cual el presente trabajo trata de contribuir en este paso hacia un futuro donde las personas sean dueñas de su información. 
-
-
-\chapter{Descripci\'on del problema}
-
-
-
-
-
 
 \chapter{Estado del arte}
 
@@ -214,16 +208,15 @@ Actualmente en desarrollo.
 
 \item \textbf{NumerAI:} Fondo de inversion que genera predicciones utilizando modelos predictivos crowd-sourced. Transforma y regulariza datos financieros a  Transforms and regularizes financial data into machine learning problems for global network of data scientists
 
-
-
 Los intercambios de Numerai están determinados por una IA, que es alimentada por una red de miles de científicos de datos anónimos. La innovación tecnológica que Numerai proporciona está en su uso del cifrado de preservación de la estructura que aplican en sus fuentes de datos. Su objetivo es evitar sesgos y sobreajuste, también hace posible que Numerai comparta sus fuentes de datos de forma gratuita con sus usuarios.
 
 \item \textbf{Augur:} Es un protocolo de predicción de mercados destinado a ser propiedad de las personas que lo usan.
 Augur es un oraculo descentralizado y un protocolo peer to peer para la predicción de mercados. Augur es proyecto open-source. Es un conjunto de smart contracts escritos en Solidity que operan sobre Ethereum.
 
 
-
-\item \textbf{Golem Network:}
+\item \textbf{Golem Network:} Primera supercomputadora descentralizada que crea un marktplace global de poder de computo.
+Golem conecta computadoras en una red peer-to-peer, permitiendo tanto a dueños de aplicaciones como a usuarios individuales ("requestors") alquilar recursos de las maquinas de otros usuarios ("providers"). Los pagos entre requestors, providers y desarrolladores de apliaciones se realizan por medio de un sistema de transacciones basado en la red de Ethereum. 
+El sistema está orientado a competir con los proveedores de infraestructura o servicios cloud para aplicaciones que requieran gran capacidad de computo reduciendo el precio de dicha capacidad. Como consecuencia, aplicaciones complejas como la representación CGI, el cálculo científico y el aprendizaje automático se volverían más accesibles.
 
 \item \textbf{OceanProtocol:} Ecosistema destinado a comprartir activos y servicios. 
 Los activos son datos y algoritmos. Los servicios son la integración, procesamiento, computación y almacenamiento. 
@@ -233,17 +226,37 @@ Ocean Protocol es un protocolo de intercambio de datos descentralizado, que perm
 \end{itemize}
 
 \chapter{Objetivos}
+El presente trabajo consta de los siguientes objetivos principales:
+
+\begin{itemize}
+\item Desarrollar un marketplace de modelos de ML que permita a usuarios dueños de estos modelos entrenarlos de manera descentralizada sin necesidad de violar la privacidad de los usuarios dueños de los datos que serán utilizados para dicho entrenamiento.  
+\item Desarrollar una forma de recompensar a los usuarios que provean datos y poder de computor para el entrenamiento de los modelos.
+\item Desarrollar un framework de Federated Learning de código libre para generar un aporte a la comunidad.
+\item Desarrollar un caso de uso de un modelo que requiera entrenamiento para hacer prueba del sistema desarrollado durante este trabajo.
+\end{itemize}
+
 
 \chapter{Car\'acteristicas del trabajo}
 
+\section{Módulo de Machine Learning descentralizado}
+Este modulo tendrá como responsabilidad realizar entrenamientos de modelos de Machine Learning siguiendo el esquema de Federated Learning. Tendrá una interfaz lo suficientemente genérica como para poder usarse con un servidor central o en una red de nodos descentralizados (como se pretende hacer con la red de Ethereum).
 
-\section{Modulo de Machine Learning descentralizado}
+\section{Módulo de encriptac\'ion}
+Este modulo tendrá como responsabilidad la encriptación y desencriptación de los modelos que se transfieran en la red para su entrenamiento. \\
+Para evitar el envío de datos por la red, y así preservar la privacidad, el esquema de Federated Learning establece que se envíen los modelos a los clientes que los entrenarán.
+Dichos modelos deben estar encriptados, ya que de otra forma cualquier participante malicioso de la red podría robarlo. \\
+Para poder operar sobre un modelo encriptado existen técnicas tales como Hommomorphic Encryption. \\
+El modulo deberá minimizar el riesgo de violación de la privacidad tanto del usuario que entrena el modelo con sus datos, como del usuario que desea obtener un modelo entrenado (sin que nadie se lo robe en el proceso), para esto se explorarán técnicas de  Secure Multi party computation y Differential Privacy.
 
+\section{La red}
+La red constará de uno o mas smart contracts desplegados en la red de Ethereum que estarán integrados con IPFS como método de almacenamiento descentralizado.
+La red proveerá medios para recompensar a los participantes de la misma, tales como pueden ser los usuarios que entrenan los modelos, según el nivel de su aporte a la calidad de las predicciones del modelo.
 
-\section{Modulo de encriptac\'ion}
+\section{Interfaz web del marketplace}
+El sistema debe tener una interfaz web que permita que usuarios puedan construir un modelo de machine learning que use determinado tipo de datos y enviarlo para su entrenamiento a los diferentes nodos de la red que cumplan con las carácteristicas pedidas por el usuario dueño del modelo.
 
-\section{}
-
+\section{Cliente web/mobile}
+Este cliente deberá permitir que los usuarios decidan cuales de sus datos quieren que sean usados para entrenar modelos de machine learning.
 
 \chapter{Tecnolog\'ias}
 
@@ -274,6 +287,22 @@ MetaMask es una extensión que permite ejecutar aplicaciones descentralizadas (d
 
 \section{Machine Learning}
 
+\subsection{Python}
+
+\subsection{Sci-kit Learn}
+Es un conjunto de herramientas de codigo abierto, de facil uso, destinandas a la mineria de datos, al análisis de los mismos y al aprendizaje automatico, construido sobre NumPy, SciPy, y matplotlib.
+
+\subsection{PyTorch}
+Es una biblioteca de código abierto de aprendizaje automatico para Python, basada en Torch, usada para aplicaciones tales como el procesamiento del lenguaje natural. Es desarrollada principalmente por el equipo de investigación de inteligencia artificial de Facebook. PyTorch provee 2 funcionalidades de alto nivel: Computo usando Tensores (como NumPy) con aceleración usando GPUs y Redes Neuronales profundas.
+
+\subsection{Tensorflow}
+Es una biblioteca de software libre que se utiliza para realizar cálculos numéricos mediante diagramas de flujo de datos. Los nodos de los diagramas representan operaciones matemáticas y las aristas reflejan las matrices de datos multidimensionales (tensores) comunicadas entre ellas. Se utiliza en gran medida para tareas de aprendizaje automatico.
+
+\subsection{Keras}
+Es una API de alto nivel de redes neuronales, escrita en Python y capaz de ser ejecutada por encima de Tensorflow, CNTK o Theano. Fue desarrollada para permitir experimentación rapida con modelos de aprendizaje automatico basados en redes neuronales.
+
+\subsection{Tensorflow.js}
+Es una biblioteca de JavaScript que permite entrenar y desplagar modelos de Machine Learning en los web browsers y en aplicaciones Node.js. Posee comptibilidad con modelos de Keras y Tensorflow, por lo que permite importar y exportar modelos de, y a, estos frameworks.
 
 \section{Frontend}
 
@@ -282,7 +311,7 @@ MetaMask es una extensión que permite ejecutar aplicaciones descentralizadas (d
 \section{Storage}
 
 \subsection{IPFS}
-IPFS (InterPlanetary File System) es un sistema distribuido para almacenar y acceder a archivos, sitios web, aplicaciones y datos.
+IPFS (InterPlanetary File System) es un sistema distribuido para almacenar y acceder a archivos, sitios web, aplicaciones y datos cuyo funcionamiento sintetiza e integra ideas exitosas previas de los sistemas peer-to-peer, incluyendo DHTs (Distributed Hash Tables),  BitTorrent, Git y SFS (Self-Certified FileSystems).
 
 \chapter{Alcance}
 El alcance del presente Trabajo Profesional comprende:
