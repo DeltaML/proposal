@@ -1,0 +1,31 @@
+\PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+\documentclass[10pt,a4paper]{moderncv}
+
+
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{verbatim}
+
+
+\moderncvtheme[burgundy]{classic}			% optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+
+% Paquetes
+\usepackage{xcolor}
+% List of colors http://en.wikibooks.org/wiki/LaTeX/Colors
+
+% character encoding
+\usepackage[utf8]{inputenc}			% replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.82, top=1.2cm, left=1.5cm, right=1.5cm, bottom=1.2cm]{geometry}
+\setlength{\hintscolumnwidth}{1.87cm}		% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{15.5cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+
+
+
+
+
+% Comandos
+\newcommand{\alto}[1]{\textcolor{ForestGreen}{#1}}
+\newcommand{\medio}[1]{\textcolor{BurntOrange}{#1}}
+\newcommand{\bajo}[1]{\textcolor{Mahogany}{#1}}

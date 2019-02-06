@@ -1,0 +1,97 @@
+\input{header}
+
+
+% personal data
+\firstname{Fabrizio Sebastian}
+\familyname{Graffe}
+\title{~ \smallskip}
+\address{3162 Carlos Gardel, 1215 CABA}{CABA, Argentina}    % optional, remove the line if not wanted
+\phone{+54 11 42928787}
+\mobile{+54 11 1551793613}                    % optional, remove the line if not wanted
+\email{zebas.graffe@gmail.com}
+%\extrainfo{Born: November $6^{th}$, 1991} % optional, remove the line if not wanted
+
+
+% to show numerical labels in the bibliography; only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+
+\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+\vspace{-2cm}
+
+\section{Education}
+\cventry{2010 \-- Presente}{Ingeniería en Informática}{Facultad de Ingeniería, Universidad de Buenos Aires (UBA)}{}{Argentina}{
+	Estudiante de ultimo año de la carrera de Ingeniería en Informática. Promedio: 7.07/10
+}
+
+\cventry{Jul 2016 \-- Ago 2016}{Curso de Big Data}{Mulesoft Academy}{}{Argentina}{
+	Curso de Big Data usando Apache Spark como herramienta. Dictado por Luis Argerich (profesor en UBA).
+}
+
+\cventry{Ago 2016 \-- Sept 2016}{Curso de Machine Learning}{Mulesoft Academy}{}{Argentina}{
+	Curso de Machine Learning usando Apache Spark como herramienta. Dictado por Luis Argerich (profesor en UBA).
+}
+
+\vspace{-0.2cm}
+
+
+\section{Projects}
+
+
+\cvline{Primavera 2013}{\textbf{Clasificador de Textos} {\small(C++)} \newline{}
+  $\bullet$ Diseño y desarrollo de un algoritmo con la capacidad de clasificar documentos de texto en grupos generados aplicando Clustering (técnica de aprendizaje no supervisado). \newline{}  
+  $\bullet$ Implementación de algoritmo de dos etapas. Primera etapa, elegir un grupo de semillas usando Clustering jerarquico aglomerativo. Segunda etapa, algoritmo K-Means usando las semillas elegidas en el paso anterior. \newline{} 
+  $\bullet$ Proyecto en equipo para la materia Organización de Datos (FIUBA). \newline{}
+}
+
+
+\vspace{-0.6cm}
+
+\section{Skills}
+\cvline{Idiomas}{	\textbf{Inglés}: Avanzado (escrito y hablado). \newline  Actualmente asistiendo a clases in-company una vez a la semana.
+}
+\cvline{Programación}{\medio{\ Scala}, \medio{Python}, \medio{Java}, \medio{C}, \medio{C\#}, \bajo{C++}, \bajo{Node.js}.} 
+\cvline{Tecnologías}{ \medio{\ Linux}, \medio{Apache Spark}, \medio{Git}, \medio{Pandas}, \bajo{Sklearn}. \hfill (\alto{high}, \medio{medium}, \bajo{low})}
+
+\vspace{-0.2cm}
+
+
+\section{Data Engineer}
+
+\cvline{Abr 2018 \-- Presente}{	\textbf{Redbee studios}, Software factory: \newline{}
+\textbf{Ofertador:} 	\newline{} 
+$\bullet$ Creación de prueba de concepto de motor de recomendaciones de productos financieros usando algoritmos de machine learning desarrollados en Python utilizando la biblioteca scikit-learn. Esto permitió la venta del proyecto a Cencosud. El motor fué portado mas adelante a Spark ML.
+$\bullet$ Las tareas involucraron exploración de los datos, investigación acerca de diferentes modelos de ML,  desarrollo de prueba de concepto y luego de eso, un MVP el cual está actualmente desplegado y funcionando en un ambiente productivo.
+$\bullet$ Actualmente trabajando para mejorar la calidad de las recomendaciones, optimizar la performance del pipeline de datos y agregar nuevas fuentes de datos.
+}
+
+\cvline{ Feb 2017 \-- Abr 2018}{	\textbf{Redbee studios}, Software factory: \newline{}
+$\bullet$ Trabajo con equipo remoto situado en Seattle (USA) para empresa con producto de sistema de recomendaciones omnicanal con grandes clientes a nivel mundial. Comunicaciones en inglés. \newline{}
+\textbf{Equipo Data, RichRelevance:} 	\newline{} 
+$\bullet$ Desarollo de ETLs que procesan comportamiendo de los usuarios en las páginas y producen reportes con insights sobre dichos datos en HDFS. Se usó Apache Spark (Scala) para el procesamiento de grandes volumenes de datos y ThoughtSpot para la creación de visualizaciones.
+$\bullet$ Se desarrolló una health check API (Play Framework) para reportar sitios con problemas, utilizando desviaciones standard de la media para calcular la severidad.
+$\bullet$ Git Flow como esquema de branchs.
+\newline{}
+\textbf{Equipo Science Dev, RichRelevance:} 	\newline{}
+$\bullet$ Tecnologías usadas: Scala + Apache Spark, Java + Apache Crunch.
+$\bullet$ Refactor a modelo de machine learning.
+$\bullet$ Desarrollo  de prueba de concepto para implementación alternativa de uno de los productos de recomendación principales de la empresa. 
+$\bullet$ Investigación para mejorar el uso de memoria para un algoritmo de predicción de clicks en ads.
+}
+
+\vspace{-0.2cm}
+
+
+\section{Colaborador}
+\cvline{ 2012 \-- 2015}{	\textbf{Algoritmos y Programación I}, Facultad de Ingeniería, Universidad de Buenos Aires: \newline{} 						$\triangleright$ Preparación y dictado de clases \hspace{0.3cm} $\triangleright$  Corrección de trabajos prácticos \hspace{0.3cm} $\triangleright$ Asistencia a estudiantes durante clases prácticas \newline{}
+$\bullet$ El curso usa python como lenguaje de aprendizaje y cubre temas como estructuras condicionales, ciclos definidos e indefinidos, definición de funciones, estructuras de datos, algoritmos de ordenamiento, recursividad y nociones de programación orientada a objetos. }
+			
+					
+\end{document}
