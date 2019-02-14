@@ -78,7 +78,7 @@ chapterinoneline, % Uncomment to place the chapter title next to the number on o
 %----------------------------------------------------------------------------------------
 
 \thesistitle{DeltaML \\
-Machine Learning descentralizado utilizando Blockchain para fomentar participaci\'on en la red} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+Plataforma descentralizada de machine learning sin violar la privacidad del usuario} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 \supervisor{Dr. Mariano \textsc{Beiró}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 \examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
 \degree{Ingeniería en Informática} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
@@ -170,7 +170,7 @@ Agustín \textsc{Rojas}  91462
 \chapter{Introducci\'on}
 El siguiente documento presenta la propuesta de Trabajo Profesional de Ingeniería en Informática de los estudiantes Fabrizio Sebastian Graffe (padrón 93158) y Agustín Rojas (padrón 91462). \\
 
-El objetivo es aplicar los conocimientos adquiridos durante la carrera, debido a esto se optó por el tema \textbf{ \say{Machine Learning descentralizado utilizando Blockchain  para fomentar participaci\'on en la red}}. \\
+El objetivo es aplicar los conocimientos adquiridos durante la carrera, por ésta razon se optó por el tema \textbf{ \say{Plataforma descentralizada de machine learning sin violar la privacidad del usuario}}. \\
 
 Machine learning (o \say{aprendizaje automático}) es la rama del área de la inteligencia artificial centrada en el estudio y construcción de sistemas capaces de aprender de los datos, identificar patrones y realizar decisiones con mínima intervención humana. \\
 
@@ -197,7 +197,7 @@ Teniendo en cuenta este contexto, se eligió la temática de este trabajo tenien
 
 \chapter{Estado del arte}
 
-Actualmente existen varsios proyectos en desarrollo y técnicas en investigación que intentan atacar la misma problemática de diferentes maneras.
+Actualmente existen varios proyectos en desarrollo y técnicas en investigación que intentan atacar la misma problemática de diferentes maneras.
 
 \begin{itemize}
 \item \textbf{Federated Learning: \cite{fedlearn2}} El aprendizaje federado es un método de aprendizaje automático en el que el objetivo es entrenar a un modelo centralizado de alta calidad con datos de entrenamiento distribuidos entre un gran número de clientes, cada uno con conexiones de red poco confiables y relativamente lentas. Los algoritmos de aprendizaje para esta configuración funcionan de la siguiente manera: en cada iteración, cada cliente calcula de forma independiente una actualización del modelo actual en función de sus datos locales y comunica esta actualización a un servidor central, donde las actualizaciones del lado del cliente se agregan para calcular una nueva versión global del modelo. Los clientes típicos en este entorno son los teléfonos móviles, y la eficiencia de la comunicación es de suma importancia. Actualmente, Google está investigando \cite{fedlearn1} \cite{fedlearn3} \cite{fedlearn4} \cite{fedlearn5} \cite{fedlearn6} esté método de aprendizaje automático y publicó varios papers al respecto, analizando mejoras y aplicaciones para dispositivos móviles (tales como predicción de palabras para GBoard).
@@ -239,14 +239,14 @@ El presente trabajo consta de los siguientes objetivos principales:
 \chapter{Car\'acteristicas del trabajo}
 
 \section{Módulo de Machine Learning descentralizado}
-Este modulo tendrá como responsabilidad realizar entrenamientos de modelos de Machine Learning siguiendo el esquema de Federated Learning. Tendrá una interfaz lo suficientemente genérica como para poder usarse con un servidor central o en una red de nodos descentralizados (como se pretende hacer con la red de Ethereum).
+Este módulo tendrá como responsabilidad realizar entrenamientos de modelos de Machine Learning siguiendo el esquema de Federated Learning. Tendrá una interfaz lo suficientemente genérica como para poder usarse con un servidor central o en una red de nodos descentralizados (como se pretende hacer con la red de Ethereum).
 
 \section{Módulo de encriptac\'ion}
-Este modulo tendrá como responsabilidad la encriptación y desencriptación de los modelos que se transfieran en la red para su entrenamiento. \\
+La responsabilidad de este módulo será la encriptación y desencriptación de los modelos que se transfieran en la red para su entrenamiento. \\
 Para evitar el envío de datos por la red, y así preservar la privacidad, el esquema de Federated Learning establece que se envíen los modelos a los clientes que los entrenarán.
 Dichos modelos deben estar encriptados, ya que de otra forma cualquier participante malicioso de la red podría robarlo. \\
 Para poder operar sobre un modelo encriptado existen técnicas tales como Hommomorphic Encryption. \\
-El modulo deberá minimizar el riesgo de violación de la privacidad tanto del usuario que entrena el modelo con sus datos, como del usuario que desea obtener un modelo entrenado (sin que nadie se lo robe en el proceso), para esto se explorarán técnicas de  Secure Multi party computation y Differential Privacy \cite{diffpriv1} \cite{diffpriv2}.
+El módulo deberá minimizar el riesgo de violación de la privacidad tanto del usuario que entrena el modelo con sus datos, como del usuario que desea obtener un modelo entrenado (sin que nadie se lo robe en el proceso), para esto se explorarán técnicas de  Secure Multi party computation y Differential Privacy \cite{diffpriv1} \cite{diffpriv2}.
 
 \section{La red}
 La red constará de uno o mas smart contracts desplegados en la red de Ethereum que estarán integrados con IPFS como método de almacenamiento descentralizado.
@@ -319,7 +319,7 @@ El alcance del presente Trabajo Profesional comprende:
 
 \begin{itemize}
 \item Desarrollo de un framework de machine learning descentralizado.
-\item Desarrollo de un modulo de encriptación.
+\item Desarrollo de un módulo de encriptación.
 \item Desarrollo de marketplace de modelos de ML por medio de smart contracts con las reglas de negocio para monetizar la contribución de los diferentes participantes.
 \item Desarrollo de integración entre smart contracts e IPFS para almacenar datos de manera descentralizada.
 \item Desarrollo de interfaz web para el marketplace.
@@ -349,13 +349,13 @@ El alcance del presente Trabajo Profesional comprende:
 Se estima que el trabajo completo a realizar tomará 6 meses, con una dedicación de
 70 hs mensuales al desarrollo del trabajo de parte de cada integrante (ver sección \autoref{estimacion}). \\
 
-El proceso de desarrollo será iterativo e incremental, con dos iteraciones iniciales de dos semanas cada una y cinco iteraciones de un mes, a lo largo de las cuales se efectuarán tanto tareas de análisis, desarrollo, testing y documentación como tareas de gestión, cada una con distinta carga horaria dependiendo de la etapa del proyecto.
-Para la gestión del proyecto, se adoptarán algunas prácticas de metodologías ágiles.
-Como en Scrum \cite{scrum}, se realizarán reuniones de Planificación, Revisión y Retrospectiva para cada iteración. Se llevarán a cabo informes de estado de las tareas 3 veces por semana con el tutor y diariamente entre los integrantes del equipo de desarrollo, ya sea de manera presencial, vía mail o videollamada dependiendo de la disponibilidad de los involucrados. Se utilizará un tablero de Kanban para organizar el trabajo en cada iteración. \\
+El proceso de desarrollo será iterativo e incremental, constará con dos iteraciones iniciales de dos semanas cada una y cinco iteraciones de un mes. A lo largo de estas se efectuarán tareas de análisis, desarrollo, testing, documentación y gestión, cada una con distinta carga horaria dependiendo de la etapa del proyecto. \\
+Para la gestión del proyecto, se adoptarán algunas prácticas de metodologías ágiles. \\
+Basándose en Scrum \cite{scrum}, se realizarán reuniones de Planificación, Revisión y Retrospectiva para cada iteración. Se llevarán a cabo informes de estado de las tareas 3 veces por semana con el tutor y diariamente entre los integrantes del equipo de desarrollo, ya sea de manera presencial, vía mail o videollamada dependiendo de la disponibilidad de los involucrados. Se utilizará un tablero de Kanban para organizar el trabajo en cada iteración. \\
 
 La gestión de riesgos se llevará a cabo utilizando una planilla en donde se registrarán los riesgos identificados, junto con su probabilidad de ocurrencia, impacto sobre el proyecto y su exposición. Se describirán también los planes de respuesta y planes de contingencia para cada riesgo. \\
 
-Durante las reuniones de Revisión, se presentarán tanto al tutor como al cliente el avance alcanzado durante la iteración anterior. Se definirán prioridades, nuevos requerimientos y cambios en la planificación.
+Durante las reuniones de Revisión, se presentará al tutor el avance alcanzado durante la iteración anterior. Se definirán prioridades, nuevos requerimientos y cambios en la planificación.
 
 \section{Estimaci\'on} \label{estimacion}
 
@@ -372,10 +372,10 @@ Se muestra a continuación el listado de tareas necesarias para alcanzar los obj
     2 & Aprendizaje de uso de IPFS como storage descentralizado & 40 \\
       & Desarrollo de prueba de concepto (IPFS + Ethereum) & 40 \\ \hline
     3 & Investigación sobre métodos de encriptación & 30 \\
-      & Desarrollo de modulo de encriptación de modelos de ML & 40 \\ \hline
+      & Desarrollo de módulo de encriptación de modelos de ML & 40 \\ \hline
     4 & Investigación sobre Federated Learning y alternativas & 30 \\ 
-      & Desarrollo de modulo de Federated Learning & 50 \\ 
-      & Desarrollo de caso de uso para modulo de Federated Learning & 30 \\ \hline
+      & Desarrollo de módulo de Federated Learning & 50 \\ 
+      & Desarrollo de caso de uso para módulo de Federated Learning & 30 \\ \hline
     5 & Investigación sobre uso de React & 20 \\  
       & Desarrollo de aplicación web para marketplace descentralizado & 70 \\ \hline
     6 & Investigación de herramientas para desarrollo de smart contracts & 30 \\
@@ -428,10 +428,10 @@ A continuación se hace un cronograma tentativo de entregables al finalizar cada
     1 & Directorio con documentación util para el proyecto & Curso de aplicaciones descentralizadas terminado \cite{course1} \cite{course2} \\ \hline
     2 & Prueba de concepto (IPFS + Ethereum) & Videos y lecturas sobre IPFS terminadas \\
       & & Prueba de concepto desarrollada  \\ \hline
-    3 & Modulo de encriptación de modelos & Investigación sobre hommomorphic encryption, multy-party encryption y alternativas terminada. \\ 
+    3 & Módulo de encriptación de modelos & Investigación sobre hommomorphic encryption, multy-party encryption y alternativas terminada. \\ 
       & & Método de encriptación seleccionado \\
-      & & Modulo de encriptación terminado \\ \hline
-    4 & Modulo de Federated Learning & Investigación sobre Federated Learning y alternativas terminado. \\ 
+      & & Módulo de encriptación terminado \\ \hline
+    4 & Módulo de Federated Learning & Investigación sobre Federated Learning y alternativas terminado. \\ 
       & & Pruebas de concepto usando Federated Learning terminadas. \\
       & & Desarrollo de framework de ML usando Federated Learning terminado. \\ \hline
     5 & Aplicación web para marketplace descentralizado & Desarrollo de frontend terminado. \\ \hline
