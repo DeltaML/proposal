@@ -170,7 +170,7 @@ Agustín \textsc{Rojas}  91462
 \chapter{Introducci\'on}
 El siguiente documento presenta la propuesta de Trabajo Profesional de Ingeniería en Informática de los estudiantes Fabrizio Sebastian Graffe (padrón 93158) y Agustín Rojas (padrón 91462). \\
 
-El objetivo es aplicar los conocimientos adquiridos durante la carrera, para lo cual el tema elegido es \textbf{ \say{Machine Learning descentralizado utilizando Blockchain  para fomentar participaci\'on en la red}}. \\
+El objetivo es aplicar los conocimientos adquiridos durante la carrera, para lo cual el tema elegido es \textbf{ \say{Plataforma descentralizada de machine learning sin violar la privacidad del usuario}}. \\
 
 Machine learning (o \say{aprendizaje automático}) es la rama del área de la inteligencia artificial centrada en el estudio y construcción de sistemas capaces de aprender de los datos, identificar patrones y realizar decisiones con mínima intervención humana. \\
 
@@ -239,14 +239,14 @@ El presente trabajo consta de los siguientes objetivos principales:
 \chapter{Car\'acteristicas del trabajo}
 
 \section{Módulo de Machine Learning descentralizado}
-Este modulo tendrá como responsabilidad realizar entrenamientos de modelos de Machine Learning siguiendo el esquema de Federated Learning. Tendrá una interfaz lo suficientemente genérica como para poder usarse con un servidor central o en una red de nodos descentralizados (como se pretende hacer con la red de Ethereum).
+Este módulo tendrá como responsabilidad realizar entrenamientos de modelos de Machine Learning siguiendo el esquema de Federated Learning. Tendrá una interfaz lo suficientemente genérica como para poder usarse con un servidor central o en una red de nodos descentralizados (como se pretende hacer con la red de Ethereum).
 
 \section{Módulo de encriptac\'ion}
-Este modulo tendrá como responsabilidad la encriptación y desencriptación de los modelos que se transfieran en la red para su entrenamiento. \\
+La responsabilidad de este módulo será la encriptación y desencriptación de los modelos que se transfieran en la red para su entrenamiento. \\
 Para evitar el envío de datos por la red, y así preservar la privacidad, el esquema de Federated Learning establece que se envíen los modelos a los clientes que los entrenarán.
 Dichos modelos deben estar encriptados, ya que de otra forma cualquier participante malicioso de la red podría robarlo. \\
 Para poder operar sobre un modelo encriptado existen técnicas tales como Hommomorphic Encryption. \\
-El modulo deberá minimizar el riesgo de violación de la privacidad tanto del usuario que entrena el modelo con sus datos, como del usuario que desea obtener un modelo entrenado (sin que nadie se lo robe en el proceso), para esto se explorarán técnicas de  Secure Multi party computation y Differential Privacy \cite{diffpriv1} \cite{diffpriv2}.
+El módulo deberá minimizar el riesgo de violación de la privacidad tanto del usuario que entrena el modelo con sus datos, como del usuario que desea obtener un modelo entrenado (sin que nadie se lo robe en el proceso), para esto se explorarán técnicas de  Secure Multi party computation y Differential Privacy \cite{diffpriv1} \cite{diffpriv2}.
 
 \section{La red}
 La red constará de uno o mas smart contracts desplegados en la red de Ethereum que estarán integrados con IPFS como método de almacenamiento descentralizado.
@@ -319,7 +319,7 @@ El alcance del presente Trabajo Profesional comprende:
 
 \begin{itemize}
 \item Desarrollo de un framework de machine learning descentralizado.
-\item Desarrollo de un modulo de encriptación.
+\item Desarrollo de un módulo de encriptación.
 \item Desarrollo de marketplace de modelos de ML por medio de smart contracts con las reglas de negocio para monetizar la contribución de los diferentes participantes.
 \item Desarrollo de integración entre smart contracts e IPFS para almacenar datos de manera descentralizada.
 \item Desarrollo de interfaz web para el marketplace.
@@ -372,10 +372,10 @@ Se muestra a continuación el listado de tareas necesarias para alcanzar los obj
     2 & Aprendizaje de uso de IPFS como storage descentralizado & 40 \\
       & Desarrollo de prueba de concepto (IPFS + Ethereum) & 40 \\ \hline
     3 & Investigación sobre métodos de encriptación & 30 \\
-      & Desarrollo de modulo de encriptación de modelos de ML & 40 \\ \hline
+      & Desarrollo de módulo de encriptación de modelos de ML & 40 \\ \hline
     4 & Investigación sobre Federated Learning y alternativas & 30 \\ 
-      & Desarrollo de modulo de Federated Learning & 50 \\ 
-      & Desarrollo de caso de uso para modulo de Federated Learning & 30 \\ \hline
+      & Desarrollo de módulo de Federated Learning & 50 \\ 
+      & Desarrollo de caso de uso para módulo de Federated Learning & 30 \\ \hline
     5 & Investigación sobre uso de React & 20 \\  
       & Desarrollo de aplicación web para marketplace descentralizado & 70 \\ \hline
     6 & Investigación de herramientas para desarrollo de smart contracts & 30 \\
@@ -428,10 +428,10 @@ A continuación se hace un cronograma tentativo de entregables al finalizar cada
     1 & Directorio con documentación util para el proyecto & Curso de aplicaciones descentralizadas terminado \cite{course1} \cite{course2} \\ \hline
     2 & Prueba de concepto (IPFS + Ethereum) & Videos y lecturas sobre IPFS terminadas \\
       & & Prueba de concepto desarrollada  \\ \hline
-    3 & Modulo de encriptación de modelos & Investigación sobre hommomorphic encryption, multy-party encryption y alternativas terminada. \\ 
+    3 & Módulo de encriptación de modelos & Investigación sobre hommomorphic encryption, multy-party encryption y alternativas terminada. \\ 
       & & Método de encriptación seleccionado \\
-      & & Modulo de encriptación terminado \\ \hline
-    4 & Modulo de Federated Learning & Investigación sobre Federated Learning y alternativas terminado. \\ 
+      & & Módulo de encriptación terminado \\ \hline
+    4 & Módulo de Federated Learning & Investigación sobre Federated Learning y alternativas terminado. \\ 
       & & Pruebas de concepto usando Federated Learning terminadas. \\
       & & Desarrollo de framework de ML usando Federated Learning terminado. \\ \hline
     5 & Aplicación web para marketplace descentralizado & Desarrollo de frontend terminado. \\ \hline
