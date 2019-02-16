@@ -245,7 +245,7 @@ Este módulo tendrá como responsabilidad realizar entrenamientos de modelos de 
 La responsabilidad de este módulo será la encriptación y desencriptación de los modelos que se transfieran en la red para su entrenamiento. \\
 Para evitar el envío de datos por la red, y así preservar la privacidad, el esquema de Federated Learning establece que se envíen los modelos a los clientes que los entrenarán.
 Dichos modelos deben estar encriptados, ya que de otra forma cualquier participante malicioso de la red podría robarlo. \\
-Para poder operar sobre un modelo encriptado existen técnicas tales como Hommomorphic Encryption. \\
+Para poder operar sobre un modelo encriptado existen técnicas tales como Homomorphic Encryption. \\
 El módulo deberá minimizar el riesgo de violación de la privacidad tanto del usuario que entrena el modelo con sus datos, como del usuario que desea obtener un modelo entrenado (sin que nadie se lo robe en el proceso), para esto se explorarán técnicas de  Secure Multi party computation y Differential Privacy \cite{diffpriv1} \cite{diffpriv2}.
 
 \section{La red}
@@ -428,7 +428,7 @@ A continuación se hace un cronograma tentativo de entregables al finalizar cada
     1 & Directorio con documentación util para el proyecto & Curso de aplicaciones descentralizadas terminado \cite{course1} \cite{course2} \\ \hline
     2 & Prueba de concepto (IPFS + Ethereum) & Videos y lecturas sobre IPFS terminadas \\
       & & Prueba de concepto desarrollada  \\ \hline
-    3 & Módulo de encriptación de modelos & Investigación sobre hommomorphic encryption, multy-party encryption y alternativas terminada. \\ 
+    3 & Módulo de encriptación de modelos & Investigación sobre homomorphic encryption, multy-party encryption y alternativas terminada. \\ 
       & & Método de encriptación seleccionado \\
       & & Módulo de encriptación terminado \\ \hline
     4 & Módulo de Federated Learning & Investigación sobre Federated Learning y alternativas terminado. \\ 
