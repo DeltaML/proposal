@@ -240,6 +240,15 @@ El presente trabajo consta de los siguientes objetivos principales:
 
 \section{Módulos}
 
+\subsection*{Interacción entre modulos}
+A continuación mostramos un diagrama del sistema describiendo las interacciones entre los diferentes módulos. \\
+
+\begin{figure}[h!]
+  	\centering
+	\includegraphics[scale=0.5]{imgs/modules-diagram.png}
+	\caption{Interacciones de los módulos del sistema}
+\end{figure}
+
 \subsection*{Módulo de Machine Learning distribuido}
 Este módulo tendrá como responsabilidad realizar entrenamientos de modelos de Machine Learning siguiendo el esquema de Federated Learning. Tendrá una interfaz lo suficientemente genérica como para poder usarse con un servidor central o en una red de nodos descentralizados (como se pretende hacer con la red de Ethereum).
 
@@ -260,44 +269,37 @@ El sistema debe tener una interfaz web que permita que usuarios puedan construir
 \subsection*{Cliente web/mobile}
 Este cliente deberá permitir que los usuarios decidan cuales de sus datos quieren que sean usados para entrenar modelos de machine learning.
 
-\section{Interacción entre modulos}
-A continuación mostramos un diagrama del sistema describiendo las interacciones entre los diferentes módulos. \\
-
-\begin{figure}[h!]
-  	\centering
-	\includegraphics[scale=0.5]{imgs/modules-diagram.png}
-	\caption{Interacciones de los módulos del sistema}
-\end{figure}
+\newpage
 
 \section{Participantes}
 
-\subsection*{Data Owner/Trainer}
-El Data Owner/Trainer es aquel que ejecuta en su computador/dispositivo el cliente web/mobile por medio del cual puede decidir en qué solicitudes de entrenamiento participar. Tiene en su poder uno o mas datasets. \\
-En su rol de de Data Owner publica al smart contract las caracteristicas de los datasets que posee (cantidad de registros, columnas, tipo de los datos de cada columna, cantidad de nulos por columna, etc) y recompensa monetaria mínima que está dispuesto a percibir por el entrenamiento de cada dataset.
-En su rol de Trainer, consulta periodicamente el estado del smart contract para verificar si hay nuevas solicitudes de entrenamiento que concuerden con las caracteristicas de su dataset y con la recompensa mínima que está dispuesto a percibir. De existir tal solicitud, el Trainer obtiene del smart contract el hash correspondiente al directorio de IPFS que tiene el modelo inicial que debe ser mejorado a través del entrenamiento con su dataset local. Al terminar el entrenamiento, notifica al smart contract y almacena las mejoras al modelo en el directorio en IPFS.
-
-\subsection*{Customer}
-El Customer interactua con el sistema por medio del marketplace, publicando una solicitud de entrenamiento para un cierto modelo con ciertas caracteristicas.
-Al crear la solicitud envía un modelo inicial a IPFS, y obtiene el hash que representa dicho recurso en ese sistema de archivos. Luego envía, a un smart contract desplegado en la red de ethereum, el hash obtenido previamente, el monto que destina al proceso de mejorar el modelo inicial, las metricas de calidad del modelo inicial y las carácteristicas que debe cumplir el dataset para entrenar el modelo mejorado.
-
-\subsection*{Federated Aggregator}
-Este participante del sistema verifica periodicamente la existencia de nuevas solicitudes de entrenamiento de modelos consultando al smart contract. De encontrar una nueva solicitud, obtiene del smart contract el hash que corresponde al directorio donde se almacenan los recursos referentes a esta solicitud en IPFS, y comienza a verificar si hay nuevas mejoras publicadas por los Trainers. De existir nuevas mejoras, el Federated Aggregator realiza un promedio de las mejoras al modelo y el modelo inicial, luego calcula la métrica de calidad del modelo nuevamente y la envia al smart contract.
-
-\subsection*{Smart Contract}
-El smart contract es el encargado de regular el mercado, recibe solicitudes y las vincula con los Data Owners que las acepten enviándoles, también, el hash correspondiente al directorio en IPFS donde se encuentran los recursos relacionados a dicha solicitud. Al mismo tiempo, también valida las condiciones de finalización para el entrenamiento (valor umbral de calidad del modelo alcanzado, tiempo de vida de la solicitud, extinción de los fondos dedicados al entrenamiento).
-Se define aquí tambien, la recompensa mínima que recibirán todos los participantes del entrenamiento (monto fijo) y el monto variable de acuerdo a la contribución a la mejora de la calidad del modelo.
-
-
-\section{Interacción entre participantes}
-A continuación mostramos un diagrama del sistema y describimos cada una de las interacciones entre los diferentes participantes.
+\subsection*{Interacción entre participantes}
+En la figura \ref{fig:interact} se observa se observa un diagrama del sistema y describimos cada una de las interacciones entre los diferentes participantes.
 
 \begin{figure}[h!]
   	\centering
 	\includegraphics[scale=0.3]{imgs/proposal-diagram.png}
 	\caption{Interacciones de los participantes del sistema}
+	\label{fig:interact}
 \end{figure}
 
-En la figura
+
+\subsection*{\textbf{D:} Data Owner/Trainer}
+El Data Owner/Trainer es aquel que ejecuta en su computador/dispositivo el cliente web/mobile por medio del cual puede decidir en qué solicitudes de entrenamiento participar. Tiene en su poder uno o mas datasets. \\
+En su rol de de Data Owner publica al smart contract las caracteristicas de los datasets que posee (cantidad de registros, columnas, tipo de los datos de cada columna, cantidad de nulos por columna, etc) y recompensa monetaria mínima que está dispuesto a percibir por el entrenamiento de cada dataset.
+En su rol de Trainer, consulta periodicamente el estado del smart contract para verificar si hay nuevas solicitudes de entrenamiento que concuerden con las caracteristicas de su dataset y con la recompensa mínima que está dispuesto a percibir. De existir tal solicitud, el Trainer obtiene del smart contract el hash correspondiente al directorio de IPFS que tiene el modelo inicial que debe ser mejorado a través del entrenamiento con su dataset local. Al terminar el entrenamiento, notifica al smart contract y almacena las mejoras al modelo en el directorio en IPFS.
+
+\subsection*{\textbf{A:} Customer}
+El Customer interactua con el sistema por medio del marketplace, publicando una solicitud de entrenamiento para un cierto modelo con ciertas caracteristicas.
+Al crear la solicitud envía un modelo inicial a IPFS, y obtiene el hash que representa dicho recurso en ese sistema de archivos. Luego envía, a un smart contract desplegado en la red de ethereum, el hash obtenido previamente, el monto que destina al proceso de mejorar el modelo inicial, las metricas de calidad del modelo inicial y las carácteristicas que debe cumplir el dataset para entrenar el modelo mejorado.
+
+\subsection*{\textbf{E:} Federated Aggregator}
+Este participante del sistema verifica periodicamente la existencia de nuevas solicitudes de entrenamiento de modelos consultando al smart contract. De encontrar una nueva solicitud, obtiene del smart contract el hash que corresponde al directorio donde se almacenan los recursos referentes a esta solicitud en IPFS, y comienza a verificar si hay nuevas mejoras publicadas por los Trainers. De existir nuevas mejoras, el Federated Aggregator realiza un promedio de las mejoras al modelo y el modelo inicial, luego calcula la métrica de calidad del modelo nuevamente y la envia al smart contract.
+
+\subsection*{\textbf{C:} Smart Contract}
+El smart contract es el encargado de regular el mercado, recibe solicitudes y las vincula con los Data Owners que las acepten enviándoles, también, el hash correspondiente al directorio en IPFS donde se encuentran los recursos relacionados a dicha solicitud. Al mismo tiempo, también valida las condiciones de finalización para el entrenamiento (valor umbral de calidad del modelo alcanzado, tiempo de vida de la solicitud, extinción de los fondos dedicados al entrenamiento).
+Se define aquí tambien, la recompensa mínima que recibirán todos los participantes del entrenamiento (monto fijo) y el monto variable de acuerdo a la contribución a la mejora de la calidad del modelo.
+
 
 \chapter{Tecnolog\'ias}
 
