@@ -274,7 +274,7 @@ A continuación mostramos un diagrama del sistema describiendo las interacciones
 \subsection*{Data Owner/Trainer}
 El Data Owner/Trainer es aquel que ejecuta en su computador/dispositivo el cliente web/mobile por medio del cual puede decidir en qué solicitudes de entrenamiento participar. Tiene en su poder uno o mas datasets. \\
 En su rol de de Data Owner publica al smart contract las caracteristicas de los datasets que posee (cantidad de registros, columnas, tipo de los datos de cada columna, cantidad de nulos por columna, etc) y recompensa monetaria mínima que está dispuesto a percibir por el entrenamiento de cada dataset.
-En su rol de Trainer, 
+En su rol de Trainer, consulta periodicamente el estado del smart contract para verificar si hay nuevas solicitudes de entrenamiento que concuerden con las caracteristicas de su dataset y con la recompensa mínima que está dispuesto a percibir. De existir tal solicitud, el Trainer obtiene del smart contract el hash correspondiente al directorio de IPFS que tiene el modelo inicial que debe ser mejorado a través del entrenamiento con su dataset local. Al terminar el entrenamiento, notifica al smart contract y almacena las mejoras al modelo en el directorio en IPFS.
 
 \subsection*{Customer}
 El Customer interactua con el sistema por medio del marketplace, publicando una solicitud de entrenamiento para un cierto modelo con ciertas caracteristicas.
@@ -296,6 +296,8 @@ A continuación mostramos un diagrama del sistema y describimos cada una de las 
 	\includegraphics[scale=0.3]{imgs/proposal-diagram.png}
 	\caption{Interacciones de los participantes del sistema}
 \end{figure}
+
+En la figura
 
 \chapter{Tecnolog\'ias}
 
