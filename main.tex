@@ -174,7 +174,7 @@ El objetivo es aplicar los conocimientos adquiridos durante la carrera, por ést
 
 Machine learning (o \say{aprendizaje automático}) es la rama del área de la inteligencia artificial centrada en el estudio y construcción de sistemas capaces de aprender de los datos, identificar patrones y realizar decisiones con mínima intervención humana. \\
 
-Blockchain \cite{bc} o DLT (Descentralized Ledger Technology), por su lado, es una tecnología que consta de un registro contable distribuido en una red de nodos. Este registro almacena las transacciones que se realizan entre los nodos de la red y cada nodo tiene una copia completa. A su vez, para evitar que por nodos maliciosos puedan cometer fraudes y/o alteraciones al registro, la tecnología cuenta con algoritmos de consenso y de prueba de trabajo realizado (Proof of Work).
+Blockchain \cite{bc} o DLT (Descentralized Ledger Technology), por su lado, es una tecnología que consta de un registro contable distribuido en una red de nodos. Este registro almacena las transacciones que se realizan entre los nodos de la red y cada nodo tiene una copia completa. A su vez, para evitar que nodos maliciosos puedan cometer fraudes y/o alteraciones al registro, la tecnología cuenta con algoritmos de consenso y de prueba de trabajo realizado (Proof of Work).
 Las ventajas de la tecnología Blockchain por sobre bases de datos tradicionales son:
 \begin{itemize}
 \item \textbf{Mayor transparencia:} Todas las transacciones son públicas, por lo que cualquier participante de la red puede verlas.
@@ -238,25 +238,68 @@ El presente trabajo consta de los siguientes objetivos principales:
 
 \chapter{Car\'acteristicas del trabajo}
 
-\section{Módulo de Machine Learning distribuido}
+\section{Módulos}
+
+\subsection*{Interacción entre modulos}
+A continuación mostramos un diagrama del sistema describiendo las interacciones entre los diferentes módulos. \\
+
+\begin{figure}[h!]
+  	\centering
+	\includegraphics[scale=0.5]{imgs/modules-diagram.png}
+	\caption{Interacciones de los módulos del sistema}
+\end{figure}
+
+\subsection*{Módulo de Machine Learning distribuido}
 Este módulo tendrá como responsabilidad realizar entrenamientos de modelos de Machine Learning siguiendo el esquema de Federated Learning. Tendrá una interfaz lo suficientemente genérica como para poder usarse con un servidor central o en una red de nodos descentralizados (como se pretende hacer con la red de Ethereum).
 
-\section{Módulo de encriptac\'ion}
+\subsection*{Módulo de encriptac\'ion}
 La responsabilidad de este módulo será la encriptación y desencriptación de los modelos que se transfieran en la red para su entrenamiento. \\
 Para evitar el envío de datos por la red, y así preservar la privacidad, el esquema de Federated Learning establece que se envíen los modelos a los clientes que los entrenarán.
 Dichos modelos deben estar encriptados, ya que de otra forma cualquier participante malicioso de la red podría robarlo. \\
-Para poder operar sobre un modelo encriptado existen técnicas tales como Hommomorphic Encryption. \\
+Para poder operar sobre un modelo encriptado existen técnicas tales como Homomorphic Encryption. \\
 El módulo deberá minimizar el riesgo de violación de la privacidad tanto del usuario que entrena el modelo con sus datos, como del usuario que desea obtener un modelo entrenado (sin que nadie se lo robe en el proceso), para esto se explorarán técnicas de  Secure Multi party computation y Differential Privacy \cite{diffpriv1} \cite{diffpriv2}.
 
-\section{La red}
+\subsection*{La red}
 La red constará de uno o mas smart contracts desplegados en la red de Ethereum que estarán integrados con IPFS como método de almacenamiento descentralizado.
 La red proveerá medios para recompensar a los participantes de la misma, tales como pueden ser los usuarios que entrenan los modelos, según el nivel de su aporte a la calidad de las predicciones del modelo.
 
-\section{Interfaz web del marketplace}
+\subsection*{Interfaz web del marketplace}
 El sistema debe tener una interfaz web que permita que usuarios puedan construir un modelo de machine learning que use determinado tipo de datos y enviarlo para su entrenamiento a los diferentes nodos de la red que cumplan con las características pedidas por el usuario dueño del modelo.
 
-\section{Cliente web/mobile}
+\subsection*{Cliente web/mobile}
 Este cliente deberá permitir que los usuarios decidan cuales de sus datos quieren que sean usados para entrenar modelos de machine learning.
+
+\newpage
+
+\section{Participantes}
+
+\subsection*{Interacción entre participantes}
+En la figura \ref{fig:interact} se observa se observa un diagrama del sistema y describimos cada una de las interacciones entre los diferentes participantes.
+
+\begin{figure}[h!]
+  	\centering
+	\includegraphics[scale=0.3]{imgs/proposal-diagram.png}
+	\caption{Interacciones de los participantes del sistema}
+	\label{fig:interact}
+\end{figure}
+
+
+\subsection*{\textbf{D:} Data Owner/Trainer}
+El Data Owner/Trainer es aquel que ejecuta en su computador/dispositivo el cliente web/mobile por medio del cual puede decidir en qué solicitudes de entrenamiento participar. Tiene en su poder uno o mas datasets. \\
+En su rol de de Data Owner publica al smart contract las caracteristicas de los datasets que posee (cantidad de registros, columnas, tipo de los datos de cada columna, cantidad de nulos por columna, etc) y recompensa monetaria mínima que está dispuesto a percibir por el entrenamiento de cada dataset.
+En su rol de Trainer, consulta periodicamente el estado del smart contract para verificar si hay nuevas solicitudes de entrenamiento que concuerden con las caracteristicas de su dataset y con la recompensa mínima que está dispuesto a percibir. De existir tal solicitud, el Trainer obtiene del smart contract el hash correspondiente al directorio de IPFS que tiene el modelo inicial que debe ser mejorado a través del entrenamiento con su dataset local. Al terminar el entrenamiento, notifica al smart contract y almacena las mejoras al modelo en el directorio en IPFS.
+
+\subsection*{\textbf{A:} Customer}
+El Customer interactua con el sistema por medio del marketplace, publicando una solicitud de entrenamiento para un cierto modelo con ciertas caracteristicas.
+Al crear la solicitud envía un modelo inicial a IPFS, y obtiene el hash que representa dicho recurso en ese sistema de archivos. Luego envía, a un smart contract desplegado en la red de ethereum, el hash obtenido previamente, el monto que destina al proceso de mejorar el modelo inicial, las metricas de calidad del modelo inicial y las carácteristicas que debe cumplir el dataset para entrenar el modelo mejorado.
+
+\subsection*{\textbf{E:} Federated Aggregator}
+Este participante del sistema verifica periodicamente la existencia de nuevas solicitudes de entrenamiento de modelos consultando al smart contract. De encontrar una nueva solicitud, obtiene del smart contract el hash que corresponde al directorio donde se almacenan los recursos referentes a esta solicitud en IPFS, y comienza a verificar si hay nuevas mejoras publicadas por los Trainers. De existir nuevas mejoras, el Federated Aggregator realiza un promedio de las mejoras al modelo y el modelo inicial, luego calcula la métrica de calidad del modelo nuevamente y la envia al smart contract.
+
+\subsection*{\textbf{C:} Smart Contract}
+El smart contract es el encargado de regular el mercado, recibe solicitudes y las vincula con los Data Owners que las acepten enviándoles, también, el hash correspondiente al directorio en IPFS donde se encuentran los recursos relacionados a dicha solicitud. Al mismo tiempo, también valida las condiciones de finalización para el entrenamiento (valor umbral de calidad del modelo alcanzado, tiempo de vida de la solicitud, extinción de los fondos dedicados al entrenamiento).
+Se define aquí tambien, la recompensa mínima que recibirán todos los participantes del entrenamiento (monto fijo) y el monto variable de acuerdo a la contribución a la mejora de la calidad del modelo.
+
 
 \chapter{Tecnolog\'ias}
 
@@ -428,7 +471,7 @@ A continuación se hace un cronograma tentativo de entregables al finalizar cada
     1 & Directorio con documentación util para el proyecto & Curso de aplicaciones descentralizadas terminado \cite{course1} \cite{course2} \\ \hline
     2 & Prueba de concepto (IPFS + Ethereum) & Videos y lecturas sobre IPFS terminadas \\
       & & Prueba de concepto desarrollada  \\ \hline
-    3 & Módulo de encriptación de modelos & Investigación sobre hommomorphic encryption, multy-party encryption y alternativas terminada. \\ 
+    3 & Módulo de encriptación de modelos & Investigación sobre homomorphic encryption, multy-party encryption y alternativas terminada. \\ 
       & & Método de encriptación seleccionado \\
       & & Módulo de encriptación terminado \\ \hline
     4 & Módulo de Federated Learning & Investigación sobre Federated Learning y alternativas terminado. \\ 
@@ -499,7 +542,8 @@ Dedicará el cuatrimestre exclusivamente a la realización del trabajo profesion
 Todas las materias de la carrera aprobadas. \\ 
 Dedicará el cuatrimestre exclusivamente a la realización del trabajo profesional con el objetivo de finalizar la carrera de grado.
 
-\chapter{Carta al departamento de computación}
+
+\chapter*{Carta al departamento de computación}
 
 Sr. Director del Departamento de Computación de la Facultad de Ingeniería de la Universidad de Buenos Aires, Ing. Pablo Cosso
 
@@ -516,7 +560,7 @@ Firma del Profesor responsable
 
 
 
-\chapter{Acta}
+\chapter*{Acta}
 
 \justify
 En Buenos Aires al 20 día del mes de febrero del año dos mil diecinueve (2019) se reúnen en el Departamento de Computación el profesor Beiró, Mariano y los estudiantes de la carrera de Ingeniería en Informática Srs. Graffe, Fabrizio (Padrón No 93158) y Rojas, Agustín (Padrón No 91462) para acordar el Tema de Trabajo profesional para el Ciclo Superior de la Carrera de los Srs. Graffe, Fabrizio y Rojas, Agustín.
